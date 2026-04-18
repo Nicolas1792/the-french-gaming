@@ -31,7 +31,7 @@ body::before {
   left: -1px;
   width: calc(100% + 2px);
   height: calc(100% + 2px);
-  background: rgba(0, 0, 0, 0.58);
+  background: rgba(0, 0, 0, 0.55);
   z-index: -1;
 }
 
@@ -40,39 +40,39 @@ body {
   color: white;
 }
 
-/* HERO */
+/* BOX */
 .conteneur {
   max-width: 900px;
-  margin: 8px auto 22px auto;
+  margin: 8px auto 20px auto;
   padding: 30px;
   text-align: center;
-  background: rgba(0, 0, 0, 0.62);
+  background: rgba(0, 0, 0, 0.60);
   border: 2px solid #ff003c;
-  border-radius: 18px;
-  box-shadow: 0 0 15px #ff003c, 0 0 30px rgba(255, 0, 60, 0.3);
-  backdrop-filter: blur(6px);
+  border-radius: 15px;
+  box-shadow: 0 0 15px #ff003c;
+  backdrop-filter: blur(5px);
   position: relative;
-  z-index: 2;
+  z-index: 20;
 }
 
-.conteneur h1 {
+.conteneur h2 {
   margin: 0 0 10px 0;
-  font-size: 2.2rem;
-  text-shadow: 0 0 10px #ff003c, 0 0 22px #ff003c;
+  text-shadow: 0 0 10px #ff003c;
 }
 
 .conteneur p {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 18px;
   line-height: 1.6;
 }
 
+/* NAV */
 nav {
   background: rgba(0, 0, 0, 0.9);
   border-top: 2px solid #ff003c;
   border-bottom: 2px solid #ff003c;
   position: relative;
-  z-index: 50;
+  z-index: 100;
 }
 
 nav ul {
@@ -101,6 +101,7 @@ nav ul li a:hover {
   color: black;
 }
 
+/* NIVEAU 1 */
 .sous {
   display: none;
   position: absolute;
@@ -116,6 +117,7 @@ nav ul li a:hover {
   display: block;
 }
 
+/* NIVEAU 2 */
 .deroulant-droite {
   position: relative;
 }
