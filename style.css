@@ -1,3 +1,4 @@
+/* ===== RESET ===== */
 html, body {
   margin: 0;
   padding: 0;
@@ -11,7 +12,7 @@ html, body {
   box-sizing: border-box;
 }
 
-/* VIDEO DE FOND */
+/* ===== VIDEO DE FOND ===== */
 #bg-video {
   position: fixed;
   top: -1px;
@@ -23,7 +24,7 @@ html, body {
   z-index: -2;
 }
 
-/* OVERLAY SOMBRE */
+/* ===== OVERLAY SOMBRE ===== */
 body::before {
   content: "";
   position: fixed;
@@ -39,10 +40,14 @@ body {
   font-family: Arial, sans-serif;
   color: white;
   overflow-x: hidden;
-  overflow-y: auto;
 }
 
-/* BOX BIENVENUE */
+/* ===== PAS D'ASCENSEUR SUR L'ACCUEIL ===== */
+body.accueil-page {
+  overflow-y: hidden;
+}
+
+/* ===== BOX BIENVENUE ===== */
 .conteneur {
   max-width: 900px;
   margin: 12px auto 24px auto;
@@ -70,7 +75,7 @@ body {
   line-height: 1.6;
 }
 
-/* MENU PRINCIPAL */
+/* ===== MENU PRINCIPAL ===== */
 nav {
   width: 100%;
   background: rgba(0, 0, 0, 0.9);
@@ -82,7 +87,6 @@ nav {
   overflow: visible !important;
 }
 
-/* MENU PRINCIPAL UNIQUEMENT */
 nav > ul {
   list-style: none;
   display: flex;
@@ -103,6 +107,7 @@ nav > ul > li > a {
   text-decoration: none;
   white-space: nowrap;
   transition: 0.25s ease;
+  cursor: pointer;
 }
 
 nav > ul > li > a:hover {
@@ -111,52 +116,48 @@ nav > ul > li > a:hover {
   box-shadow: 0 0 12px #ff003c;
 }
 
-/* RESET SOUS-MENUS */
+/* ===== SOUS-MENUS ===== */
 .sous,
 .sous-sous {
+  display: none;
   list-style: none;
   margin: 0;
   padding: 0;
+  background: rgba(0, 0, 0, 0.96);
+  box-shadow: 0 0 12px #ff003c;
   overflow: visible;
 }
 
-/* SOUS-MENU NIVEAU 1 */
 .sous {
-  display: none;
   position: absolute;
   top: 100%;
   left: 0;
   min-width: 240px;
-  background: rgba(0, 0, 0, 0.96);
-  box-shadow: 0 0 12px #ff003c;
   z-index: 10000;
 }
 
-.deroulant:hover > .sous {
-  display: block;
-}
-
-/* SOUS-MENU NIVEAU 2 */
-.deroulant-droite {
-  position: relative;
-}
-
 .sous-sous {
-  display: none;
   position: absolute;
   top: 0;
   left: 100%;
   min-width: 240px;
-  background: rgba(0, 0, 0, 0.96);
-  box-shadow: 0 0 12px #ff003c;
   z-index: 10001;
 }
 
-.deroulant-droite:hover > .sous-sous {
+/* ===== OUVERTURE AU CLIC ===== */
+.deroulant.open > .sous {
   display: block;
 }
 
-/* LIENS DES SOUS-MENUS */
+.deroulant-droite.open > .sous-sous {
+  display: block;
+}
+
+.deroulant-droite {
+  position: relative;
+}
+
+/* ===== LIENS SOUS-MENUS ===== */
 .sous li a,
 .sous-sous li a {
   display: block;
@@ -164,7 +165,6 @@ nav > ul > li > a:hover {
   color: white;
   text-decoration: none;
   border-bottom: 1px solid #333;
-  background: transparent;
   white-space: nowrap;
 }
 
@@ -174,7 +174,7 @@ nav > ul > li > a:hover {
   color: black;
 }
 
-/* PAGE MATERIEL */
+/* ===== PAGE MATERIEL ===== */
 .page-materiel {
   max-width: 1300px;
   margin: 0 auto;
@@ -268,8 +268,12 @@ nav > ul > li > a:hover {
   line-height: 1.5;
 }
 
-/* RESPONSIVE */
+/* ===== RESPONSIVE ===== */
 @media screen and (max-width: 900px) {
+  body.accueil-page {
+    overflow-y: auto;
+  }
+
   .conteneur {
     margin: 10px 14px 18px 14px;
     padding: 22px;
@@ -318,16 +322,4 @@ nav > ul > li > a:hover {
   .hero-materiel p {
     font-size: 1rem;
   }
-}
-
-/* ACCUEIL : pas d'ascenseur */
-body.accueil-page {
-  overflow-y: hidden;
-}
-
-/* Le menu ne doit pas pousser la page */
-body.accueil-page nav,
-body.accueil-page .sous,
-body.accueil-page .sous-sous {
-  overflow: visible;
 }
