@@ -103,6 +103,41 @@
       </li>
     </ul>
   </nav>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const menuLinks = document.querySelectorAll("nav .deroulant > a, nav .deroulant-droite > a");
 
+  menuLinks.forEach(link => {
+    link.addEventListener("click", function (e) {
+      const parent = this.parentElement;
+      const submenu = parent.querySelector(":scope > .sous, :scope > .sous-sous");
+
+      if (submenu) {
+        e.preventDefault();
+
+        // ferme les menus frères
+        const siblings = parent.parentElement.children;
+        for (let i = 0; i < siblings.length; i++) {
+          if (siblings[i] !== parent) {
+            siblings[i].classList.remove("open");
+          }
+        }
+
+        // toggle menu courant
+        parent.classList.toggle("open");
+      }
+    });
+  });
+
+  // ferme tout si clic ailleurs
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest("nav")) {
+      document.querySelectorAll("nav .open").forEach(item => {
+        item.classList.remove("open");
+      });
+    }
+  });
+});
+</script>
 </body>
 </html>
