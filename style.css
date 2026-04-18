@@ -262,4 +262,15 @@ nav > ul > li > a:hover {
   .sous-sous {
     position: static;
   }
+  .sous {
+  display: block !important;
+  position: static !important;
+  min-width: 100% !important;
+}
+
+.sous-sous {
+  display: block !important;
+  position: static !important;
+  min-width: 100% !important;
+}
 }
