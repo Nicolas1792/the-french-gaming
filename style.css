@@ -1,4 +1,3 @@
-/* RESET */
 html, body {
   margin: 0;
   padding: 0;
@@ -12,7 +11,7 @@ html, body {
   box-sizing: border-box;
 }
 
-/* VIDEO */
+/* VIDEO DE FOND */
 #bg-video {
   position: fixed;
   top: -1px;
@@ -24,7 +23,7 @@ html, body {
   z-index: -2;
 }
 
-/* OVERLAY */
+/* OVERLAY SOMBRE */
 body::before {
   content: "";
   position: fixed;
@@ -39,6 +38,8 @@ body::before {
 body {
   font-family: Arial, sans-serif;
   color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* BOX BIENVENUE */
@@ -54,6 +55,7 @@ body {
   backdrop-filter: blur(6px);
   position: relative;
   z-index: 20;
+  overflow: visible;
 }
 
 .conteneur h2 {
@@ -68,7 +70,7 @@ body {
   line-height: 1.6;
 }
 
-/* ===== MENU PRINCIPAL ===== */
+/* MENU PRINCIPAL */
 nav {
   width: 100%;
   background: rgba(0, 0, 0, 0.9);
@@ -77,6 +79,7 @@ nav {
   box-shadow: 0 0 12px rgba(255, 0, 60, 0.3);
   position: relative;
   z-index: 9999;
+  overflow: visible !important;
 }
 
 /* MENU PRINCIPAL UNIQUEMENT */
@@ -108,15 +111,16 @@ nav > ul > li > a:hover {
   box-shadow: 0 0 12px #ff003c;
 }
 
-/* SOUS-MENUS RESET */
+/* RESET SOUS-MENUS */
 .sous,
 .sous-sous {
   list-style: none;
   margin: 0;
   padding: 0;
+  overflow: visible;
 }
 
-/* SOUS MENU 1 */
+/* SOUS-MENU NIVEAU 1 */
 .sous {
   display: none;
   position: absolute;
@@ -132,7 +136,7 @@ nav > ul > li > a:hover {
   display: block;
 }
 
-/* SOUS MENU 2 */
+/* SOUS-MENU NIVEAU 2 */
 .deroulant-droite {
   position: relative;
 }
@@ -152,7 +156,7 @@ nav > ul > li > a:hover {
   display: block;
 }
 
-/* LIENS */
+/* LIENS DES SOUS-MENUS */
 .sous li a,
 .sous-sous li a {
   display: block;
@@ -160,6 +164,8 @@ nav > ul > li > a:hover {
   color: white;
   text-decoration: none;
   border-bottom: 1px solid #333;
+  background: transparent;
+  white-space: nowrap;
 }
 
 .sous li a:hover,
@@ -168,7 +174,7 @@ nav > ul > li > a:hover {
   color: black;
 }
 
-/* ===== PAGE MATERIEL ===== */
+/* PAGE MATERIEL */
 .page-materiel {
   max-width: 1300px;
   margin: 0 auto;
@@ -198,6 +204,7 @@ nav > ul > li > a:hover {
 .hero-materiel p {
   margin: 0 0 20px 0;
   font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .btn-retour {
@@ -208,14 +215,16 @@ nav > ul > li > a:hover {
   color: white;
   text-decoration: none;
   background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 12px rgba(255, 0, 60, 0.25);
+  transition: 0.25s ease;
 }
 
 .btn-retour:hover {
   background: #ff003c;
   color: black;
+  box-shadow: 0 0 16px #ff003c;
 }
 
-/* CARTES */
 .grille-materiel {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -228,18 +237,19 @@ nav > ul > li > a:hover {
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 0 16px rgba(255, 0, 60, 0.25);
-  transition: 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .carte-materiel:hover {
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 0 20px #ff003c;
+  box-shadow: 0 0 20px #ff003c, 0 0 30px rgba(255, 0, 60, 0.35);
 }
 
 .carte-materiel img {
   width: 100%;
   height: 220px;
   object-fit: cover;
+  display: block;
 }
 
 .contenu-materiel {
@@ -249,28 +259,63 @@ nav > ul > li > a:hover {
 
 .contenu-materiel h2 {
   margin: 0 0 10px 0;
+  font-size: 1.3rem;
   text-shadow: 0 0 8px #ff003c;
+}
+
+.contenu-materiel p {
+  margin: 0;
+  line-height: 1.5;
 }
 
 /* RESPONSIVE */
 @media screen and (max-width: 900px) {
+  .conteneur {
+    margin: 10px 14px 18px 14px;
+    padding: 22px;
+  }
+
+  .conteneur h2 {
+    font-size: 1.7rem;
+  }
+
+  .conteneur p {
+    font-size: 1rem;
+  }
+
   nav > ul {
     flex-direction: column;
+    align-items: center;
+  }
+
+  nav > ul > li {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav > ul > li > a {
+    padding: 14px;
   }
 
   .sous,
   .sous-sous {
     position: static;
+    min-width: 100%;
   }
-  .sous {
-  display: block !important;
-  position: static !important;
-  min-width: 100% !important;
-}
 
-.sous-sous {
-  display: block !important;
-  position: static !important;
-  min-width: 100% !important;
-}
+  .page-materiel {
+    padding: 20px 14px 40px 14px;
+  }
+
+  .hero-materiel {
+    padding: 22px;
+  }
+
+  .hero-materiel h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-materiel p {
+    font-size: 1rem;
+  }
 }
