@@ -68,12 +68,11 @@ body::before {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.88);
   border-top: 2px solid #ff003c;
   border-bottom: 2px solid #ff003c;
-  box-shadow: 0 0 12px rgba(255, 0, 60, 0.3);
+  box-shadow: 0 0 18px rgba(255, 0, 60, 0.35);
   position: relative;
   z-index: 9999;
 }
@@ -82,183 +81,144 @@ body::before {
   position: relative;
 }
 
-.menu-item details {
+.menu-item > details {
   position: relative;
 }
 
-.menu-item summary {
+.menu-item > details > summary {
   list-style: none;
   cursor: pointer;
   padding: 16px 28px;
   color: white;
   user-select: none;
   white-space: nowrap;
+  font-weight: 600;
+  transition: 0.25s ease;
 }
 
-.menu-item summary::-webkit-details-marker {
+.menu-item > details > summary::-webkit-details-marker {
   display: none;
 }
 
-.menu-item summary:hover {
+.menu-item > details > summary::after {
+  content: " ▾";
+  color: #ff003c;
+  font-size: 0.9em;
+}
+
+.menu-item > details[open] > summary,
+.menu-item > details > summary:hover {
   background: #ff003c;
+  color: black;
+  box-shadow: 0 0 14px #ff003c;
+}
+
+.menu-item > details[open] > summary::after,
+.menu-item > details > summary:hover::after {
   color: black;
 }
 
+/* menus déroulants */
 .submenu {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 2px);
   left: 0;
-  min-width: 240px;
-  background: rgba(0, 0, 0, 0.97);
-  box-shadow: 0 0 12px #ff003c;
+  min-width: 250px;
+  background: rgba(8, 8, 8, 0.96);
+  border: 1px solid rgba(255, 0, 60, 0.65);
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0 0 16px rgba(255, 0, 60, 0.35);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   z-index: 10000;
 }
 
-.submenu a,
-.submenu summary {
-  padding: 12px 16px;
-  text-decoration: none;
-  color: white;
-  border-bottom: 1px solid #333;
-  background: transparent;
-}
-
-.submenu a:hover,
-.submenu summary:hover {
-  background: #ff003c;
-  color: black;
-}
-
-.nested {
-  top: 0;
-  left: 100%;
-}
-
+/* sous-sous-menu */
 .submenu details {
   position: relative;
 }
 
-.page-materiel {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 30px 20px 60px 20px;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-materiel {
-  max-width: 900px;
-  margin: 10px auto 40px auto;
-  padding: 30px;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.65);
-  border: 2px solid #ff003c;
-  border-radius: 18px;
-  box-shadow: 0 0 15px #ff003c, 0 0 30px rgba(255, 0, 60, 0.3);
-  backdrop-filter: blur(6px);
-}
-
-.hero-materiel h1 {
-  margin: 0 0 12px 0;
-  font-size: 2.3rem;
-  text-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c;
-}
-
-.hero-materiel p {
-  margin: 0 0 20px 0;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-.btn-retour {
-  display: inline-block;
-  padding: 14px 22px;
-  border: 2px solid #ff003c;
-  border-radius: 14px;
+.submenu details > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 16px;
   color: white;
-  text-decoration: none;
-  background: rgba(0, 0, 0, 0.7);
-  box-shadow: 0 0 12px rgba(255, 0, 60, 0.25);
-  transition: 0.25s ease;
+  border-bottom: 1px solid #262626;
+  transition: 0.2s ease;
+  white-space: nowrap;
+  background: transparent;
 }
 
-.btn-retour:hover {
+.submenu details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.submenu details > summary::after {
+  content: " ▸";
+  color: #ff003c;
+  float: right;
+}
+
+.submenu details[open] > summary,
+.submenu details > summary:hover {
   background: #ff003c;
   color: black;
-  box-shadow: 0 0 16px #ff003c;
 }
 
-.grille-materiel {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
+.submenu details[open] > summary::after,
+.submenu details > summary:hover::after {
+  color: black;
 }
 
-.carte-materiel {
-  background: rgba(0, 0, 0, 0.7);
-  border: 2px solid rgba(255, 0, 60, 0.7);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 0 16px rgba(255, 0, 60, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.carte-materiel:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 0 20px #ff003c, 0 0 30px rgba(255, 0, 60, 0.35);
-}
-
-.carte-materiel img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
+.submenu a {
   display: block;
+  padding: 12px 16px;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid #262626;
+  transition: 0.2s ease;
+  background: transparent;
 }
 
-.contenu-materiel {
-  padding: 20px;
-  text-align: center;
+.submenu a:hover {
+  background: #ff003c;
+  color: black;
 }
 
-.contenu-materiel h2 {
-  margin: 0 0 10px 0;
-  font-size: 1.3rem;
-  text-shadow: 0 0 8px #ff003c;
+/* sous-menu imbriqué */
+.nested {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 6px);
+  min-width: 240px;
+  background: rgba(8, 8, 8, 0.97);
+  border: 1px solid rgba(255, 0, 60, 0.65);
+  border-radius: 14px;
+  box-shadow: 0 0 16px rgba(255, 0, 60, 0.35);
+  overflow: hidden;
 }
 
-.contenu-materiel p {
-  margin: 0;
-  line-height: 1.5;
-}
-
+/* responsive */
 @media screen and (max-width: 900px) {
-  body.accueil-page {
-    overflow-y: auto;
-  }
-
-  .conteneur {
-    margin: 10px 14px 18px 14px;
-    padding: 22px;
-  }
-
-  .conteneur h2 {
-    font-size: 1.7rem;
-  }
-
-  .conteneur p {
-    font-size: 1rem;
-  }
-
   .menu-principal {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .menu-item > details > summary {
+    text-align: center;
   }
 
   .submenu,
   .nested {
     position: static;
     min-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .submenu details > summary::after {
+    float: none;
   }
 }
