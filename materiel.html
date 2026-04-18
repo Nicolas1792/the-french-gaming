@@ -2,72 +2,84 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon matériel - The French Gaming</title>
+  <title>Mon matériel</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- 🎥 VIDEO -->
   <video autoplay muted loop playsinline id="bg-video">
     <source src="Asus_Rog.mp4" type="video/mp4">
   </video>
 
   <div class="page-materiel">
-    <header class="hero-materiel">
+
+    <!-- HEADER -->
+    <div class="hero-materiel">
       <h1>Mon matériel gaming 🖥️</h1>
-      <p>Mon setup principal pour jouer, streamer et profiter des jeux dans les meilleures conditions.</p>
-      <a class="btn-retour" href="index.html">⬅ Accueil</a>
-    </header>
+      <p>Mon setup principal pour jouer, streamer et profiter à fond.</p>
+      <a href="index.html" class="btn-retour">← Accueil</a>
+    </div>
 
-    <section class="grille-materiel">
-      <article class="carte-materiel">
-        <img src="RTX_5080.jpg" alt="Carte graphique">
-        <div class="contenu-materiel">
-          <h2>Carte graphique</h2>
-          <p>Asus Prime RTX 5080</p>
-        </div>
-      </article>
+    <!-- GRID -->
+    <div class="grille-materiel">
 
-      <article class="carte-materiel">
-        <img src="5700x3D.webp" alt="Processeur">
-        <div class="contenu-materiel">
-          <h2>Processeur</h2>
-          <p>Ryzen 7 5700X3D</p>
-        </div>
-      </article>
-
-      <article class="carte-materiel">
-        <img src="Corsair_32Go.jpg" alt="Mémoire RAM">
-        <div class="contenu-materiel">
-          <h2>Mémoire vive</h2>
-          <p>32 Go DDR4 Corsair Vengeance RGB</p>
-        </div>
-      </article>
-
-      <article class="carte-materiel">
-        <img src="SSD.webp" alt="Stockage SSD">
-        <div class="contenu-materiel">
-          <h2>Stockage</h2>
-          <p>SSD NVMe 2 To + SSD SATA pour les jeux</p>
-        </div>
-      </article>
-
-      <article class="carte-materiel">
-        <img src="Asus_ROG_Crosshair_Formula_VIII.webp" alt="Carte mère">
-        <div class="contenu-materiel">
-          <h2>Carte mère</h2>
-          <p>Asus ROG Crosshair Formula VIII</p>
-        </div>
-      </article>
-
-      <article class="carte-materiel">
-        <img src="Asus_ROG_Strix_XG27UCG.webp" alt="Écran gaming">
+      <!-- 1 ECRAN -->
+      <div class="carte-materiel">
+        <img src="images/ecran.webp" alt="Écran gaming">
         <div class="contenu-materiel">
           <h2>Écran</h2>
           <p>Asus ROG Strix XG27UCG</p>
         </div>
-      </article>
-    </section>
+      </div>
+
+      <!-- 2 CARTE MERE -->
+      <div class="carte-materiel">
+        <img src="images/carte_mere.webp" alt="Carte mère">
+        <div class="contenu-materiel">
+          <h2>Carte mère</h2>
+          <p>Asus ROG Crosshair Formula VIII</p>
+        </div>
+      </div>
+
+      <!-- 3 PROCESSEUR -->
+      <div class="carte-materiel">
+        <img src="images/cpu.webp" alt="Processeur">
+        <div class="contenu-materiel">
+          <h2>Processeur</h2>
+          <p>Ryzen 7 5700X3D</p>
+        </div>
+      </div>
+
+      <!-- 4 CARTE GRAPHIQUE -->
+      <div class="carte-materiel">
+        <img src="images/gpu.webp" alt="Carte graphique">
+        <div class="contenu-materiel">
+          <h2>Carte graphique</h2>
+          <p>Asus Prime RTX 5080</p>
+        </div>
+      </div>
+
+      <!-- 5 SSD -->
+      <div class="carte-materiel">
+        <img src="images/ssd_fast.webp" alt="SSD rapide">
+        <div class="contenu-materiel">
+          <h2>Stockage</h2>
+          <p>SSD NVMe 2 To + SSD SATA</p>
+        </div>
+      </div>
+
+      <!-- 6 RAM -->
+      <div class="carte-materiel">
+        <img src="images/ram.webp" alt="Mémoire RAM">
+        <div class="contenu-materiel">
+          <h2>Mémoire vive</h2>
+          <p>32 Go DDR4 Corsair Vengeance RGB</p>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 
 </body>
