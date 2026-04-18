@@ -103,49 +103,5 @@
       </li>
     </ul>
   </nav>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const menuLinks = document.querySelectorAll(".menu-principal .deroulant > a, .menu-principal .deroulant-droite > a");
-
-  menuLinks.forEach(function (link) {
-    link.addEventListener("click", function (e) {
-      const parent = this.parentElement;
-      const submenu = this.nextElementSibling;
-
-      if (submenu && (submenu.classList.contains("sous") || submenu.classList.contains("sous-sous"))) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        if (parent.classList.contains("deroulant")) {
-          document.querySelectorAll(".menu-principal .deroulant").forEach(function (item) {
-            if (item !== parent) {
-              item.classList.remove("open");
-            }
-          });
-        }
-
-        if (parent.classList.contains("deroulant-droite")) {
-          const siblings = parent.parentElement.querySelectorAll(":scope > .deroulant-droite");
-          siblings.forEach(function (item) {
-            if (item !== parent) {
-              item.classList.remove("open");
-            }
-          });
-        }
-
-        parent.classList.toggle("open");
-      }
-    });
-  });
-
-  document.addEventListener("click", function (e) {
-    if (!e.target.closest(".menu-principal")) {
-      document.querySelectorAll(".menu-principal .open").forEach(function (item) {
-        item.classList.remove("open");
-      });
-    }
-  });
-});
-</script>
 </body>
 </html>
