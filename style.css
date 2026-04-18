@@ -318,7 +318,9 @@ nav > ul > li > a:hover {
   .hero-materiel p {
     font-size: 1rem;
   }
-  /* ACCUEIL : pas d'ascenseur */
+}
+
+/* ACCUEIL : pas d'ascenseur */
 body.accueil-page {
   overflow-y: hidden;
 }
@@ -328,5 +330,4 @@ body.accueil-page nav,
 body.accueil-page .sous,
 body.accueil-page .sous-sous {
   overflow: visible;
-}
 }
