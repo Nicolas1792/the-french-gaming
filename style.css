@@ -1,3 +1,4 @@
+/* ===== RESET ===== */
 html,
 body {
   margin: 0;
@@ -17,19 +18,23 @@ body {
   color: white;
 }
 
+/* ===== PAS D'ASCENSEUR SUR L'ACCUEIL ===== */
 body.accueil-page {
   overflow-y: hidden;
 }
 
+/* ===== VIDEO DE FOND ===== */
 #bg-video {
   position: fixed;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   z-index: -2;
 }
 
+/* ===== OVERLAY SOMBRE ===== */
 body::before {
   content: "";
   position: fixed;
@@ -38,6 +43,7 @@ body::before {
   z-index: -1;
 }
 
+/* ===== CADRE HAUT ===== */
 .conteneur {
   max-width: 900px;
   margin: 12px auto 24px auto;
@@ -64,161 +70,272 @@ body::before {
   line-height: 1.6;
 }
 
+/* ===== MENU PRINCIPAL ===== */
 .menu-principal {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   width: 100%;
-  background: rgba(0, 0, 0, 0.88);
+  background: rgba(0, 0, 0, 0.9);
   border-top: 2px solid #ff003c;
   border-bottom: 2px solid #ff003c;
-  box-shadow: 0 0 18px rgba(255, 0, 60, 0.35);
+  box-shadow: 0 0 12px rgba(255, 0, 60, 0.3);
   position: relative;
   z-index: 9999;
 }
 
-.menu-item {
-  position: relative;
-}
-
-.menu-item > details {
-  position: relative;
-}
-
-.menu-item > details > summary {
+.menu-principal > ul {
   list-style: none;
-  cursor: pointer;
-  padding: 16px 28px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-principal > ul > li {
+  position: relative;
+}
+
+.menu-principal > ul > li > a {
+  display: block;
+  padding: 18px 34px;
   color: white;
-  user-select: none;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 18px;
   white-space: nowrap;
-  font-weight: 600;
-  transition: 0.25s ease;
+  transition: 0.2s ease;
 }
 
-.menu-item > details > summary::-webkit-details-marker {
-  display: none;
-}
-
-.menu-item > details > summary::after {
-  content: " ▾";
-  color: #ff003c;
-  font-size: 0.9em;
-}
-
-.menu-item > details[open] > summary,
-.menu-item > details > summary:hover {
+.menu-principal > ul > li > a:hover {
   background: #ff003c;
   color: black;
-  box-shadow: 0 0 14px #ff003c;
+  box-shadow: 0 0 12px #ff003c;
 }
 
-.menu-item > details[open] > summary::after,
-.menu-item > details > summary:hover::after {
-  color: black;
+/* petite flèche visuelle */
+.menu-principal > ul > li > a::after {
+  content: " ▼";
+  font-size: 12px;
+  margin-left: 6px;
+  color: inherit;
 }
 
-/* menus déroulants */
-.submenu {
+/* ===== SOUS-MENUS ===== */
+.sous,
+.sous-sous {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.97);
+  box-shadow: 0 0 12px #ff003c;
+}
+
+.sous {
   position: absolute;
-  top: calc(100% + 2px);
+  top: 100%;
   left: 0;
-  min-width: 250px;
-  background: rgba(8, 8, 8, 0.96);
-  border: 1px solid rgba(255, 0, 60, 0.65);
-  border-radius: 0 0 14px 14px;
-  box-shadow: 0 0 16px rgba(255, 0, 60, 0.35);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  min-width: 260px;
   z-index: 10000;
 }
 
-/* sous-sous-menu */
-.submenu details {
+.sous-sous {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  min-width: 260px;
+  z-index: 10001;
+}
+
+.deroulant,
+.deroulant-droite {
   position: relative;
 }
 
-.submenu details > summary {
-  list-style: none;
-  cursor: pointer;
-  padding: 12px 16px;
-  color: white;
-  border-bottom: 1px solid #262626;
-  transition: 0.2s ease;
-  white-space: nowrap;
-  background: transparent;
-}
-
-.submenu details > summary::-webkit-details-marker {
-  display: none;
-}
-
-.submenu details > summary::after {
-  content: " ▸";
-  color: #ff003c;
-  float: right;
-}
-
-.submenu details[open] > summary,
-.submenu details > summary:hover {
-  background: #ff003c;
-  color: black;
-}
-
-.submenu details[open] > summary::after,
-.submenu details > summary:hover::after {
-  color: black;
-}
-
-.submenu a {
+.deroulant:hover > .sous {
   display: block;
-  padding: 12px 16px;
+}
+
+.deroulant-droite:hover > .sous-sous {
+  display: block;
+}
+
+/* ===== LIENS DES SOUS-MENUS ===== */
+.sous li a,
+.sous-sous li a {
+  display: block;
+  padding: 14px 18px;
   color: white;
   text-decoration: none;
-  border-bottom: 1px solid #262626;
-  transition: 0.2s ease;
+  border-bottom: 1px solid #333;
+  white-space: nowrap;
   background: transparent;
+  font-size: 16px;
+  font-weight: 500;
 }
 
-.submenu a:hover {
+.sous li a:hover,
+.sous-sous li a:hover {
   background: #ff003c;
   color: black;
 }
 
-/* sous-menu imbriqué */
-.nested {
-  position: absolute;
-  top: 0;
-  left: calc(100% + 6px);
-  min-width: 240px;
-  background: rgba(8, 8, 8, 0.97);
-  border: 1px solid rgba(255, 0, 60, 0.65);
-  border-radius: 14px;
-  box-shadow: 0 0 16px rgba(255, 0, 60, 0.35);
-  overflow: hidden;
+/* flèche pour catégories internes */
+.deroulant-droite > a::after {
+  content: " ▸";
+  float: right;
+  margin-left: 10px;
 }
 
-/* responsive */
+/* ===== PAGE MATERIEL ===== */
+.page-materiel {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 30px 20px 60px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-materiel {
+  max-width: 900px;
+  margin: 10px auto 40px auto;
+  padding: 30px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.65);
+  border: 2px solid #ff003c;
+  border-radius: 18px;
+  box-shadow: 0 0 15px #ff003c, 0 0 30px rgba(255, 0, 60, 0.3);
+  backdrop-filter: blur(6px);
+}
+
+.hero-materiel h1 {
+  margin: 0 0 12px 0;
+  font-size: 2.3rem;
+  text-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c;
+}
+
+.hero-materiel p {
+  margin: 0 0 20px 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.btn-retour {
+  display: inline-block;
+  padding: 14px 22px;
+  border: 2px solid #ff003c;
+  border-radius: 14px;
+  color: white;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 12px rgba(255, 0, 60, 0.25);
+  transition: 0.25s ease;
+}
+
+.btn-retour:hover {
+  background: #ff003c;
+  color: black;
+  box-shadow: 0 0 16px #ff003c;
+}
+
+.grille-materiel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.carte-materiel {
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(255, 0, 60, 0.7);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 0 16px rgba(255, 0, 60, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carte-materiel:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 0 20px #ff003c, 0 0 30px rgba(255, 0, 60, 0.35);
+}
+
+.carte-materiel img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.contenu-materiel {
+  padding: 20px;
+  text-align: center;
+}
+
+.contenu-materiel h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.3rem;
+  text-shadow: 0 0 8px #ff003c;
+}
+
+.contenu-materiel p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ===== RESPONSIVE ===== */
 @media screen and (max-width: 900px) {
-  .menu-principal {
+  body.accueil-page {
+    overflow-y: auto;
+  }
+
+  .conteneur {
+    margin: 10px 14px 18px 14px;
+    padding: 22px;
+  }
+
+  .conteneur h2 {
+    font-size: 1.7rem;
+  }
+
+  .conteneur p {
+    font-size: 1rem;
+  }
+
+  .menu-principal > ul {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .menu-item > details > summary {
+  .menu-principal > ul > li {
+    width: 100%;
     text-align: center;
   }
 
-  .submenu,
-  .nested {
-    position: static;
-    min-width: 100%;
-    border-radius: 0;
-    box-shadow: none;
+  .menu-principal > ul > li > a {
+    padding: 16px;
   }
 
-  .submenu details > summary::after {
+  .sous,
+  .sous-sous {
+    position: static;
+    min-width: 100%;
+  }
+
+  .deroulant-droite > a::after {
     float: none;
+  }
+
+  .page-materiel {
+    padding: 20px 14px 40px 14px;
+  }
+
+  .hero-materiel {
+    padding: 22px;
+  }
+
+  .hero-materiel h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-materiel p {
+    font-size: 1rem;
   }
 }
