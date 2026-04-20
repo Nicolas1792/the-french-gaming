@@ -6,7 +6,7 @@ body {
   width: 100%;
   height: 100%;
   background: black;
-  overflow: hidden; /* ❌ supprime l'ascenseur global */
+  overflow: hidden;
 }
 
 * {
@@ -16,6 +16,7 @@ body {
 body {
   font-family: Arial, sans-serif;
   color: white;
+  position: relative;
 }
 
 /* ===== VIDEO DE FOND ===== */
@@ -25,7 +26,8 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -2;
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* ===== OVERLAY SOMBRE ===== */
@@ -33,8 +35,16 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: -1;
+  background: rgba(0, 0, 0, 0.30);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ===== CONTENU AU-DESSUS ===== */
+.conteneur,
+nav {
+  position: relative;
+  z-index: 2;
 }
 
 /* ===== BOX DU HAUT ===== */
@@ -48,8 +58,6 @@ body::before {
   border-radius: 18px;
   box-shadow: 0 0 15px #ff003c, 0 0 30px rgba(255, 0, 60, 0.3);
   backdrop-filter: blur(6px);
-  position: relative;
-  z-index: 20;
 }
 
 .conteneur h2 {
@@ -70,11 +78,8 @@ nav {
   border-top: 2px solid #ff003c;
   border-bottom: 2px solid #ff003c;
   box-shadow: 0 0 12px rgba(255, 0, 60, 0.3);
-  position: relative;
-  z-index: 9999;
 }
 
-/* ligne du menu */
 nav > ul {
   list-style: none;
   display: flex;
@@ -88,7 +93,6 @@ nav > ul > li {
   position: relative;
 }
 
-/* boutons */
 nav > ul > li > a {
   display: block;
   padding: 18px 30px;
@@ -111,24 +115,27 @@ nav > ul > li > a:hover {
   position: absolute;
   top: 100%;
   left: 0;
-
   min-width: 320px;
-
-  /* 🔥 clé du fix */
   max-height: calc(100vh - 180px);
   overflow-y: auto;
-
+  overflow-x: hidden;
   background: rgba(0, 0, 0, 0.97);
   box-shadow: 0 0 12px #ff003c;
   z-index: 10000;
+  padding: 0;
+  margin: 0;
 }
 
-/* affichage au hover */
 .deroulant:hover > .sous {
   display: block;
 }
 
-/* liens */
+.sous li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .sous li a {
   display: block;
   padding: 12px 16px;
@@ -155,7 +162,7 @@ nav > ul > li > a:hover {
   border-bottom: 1px solid rgba(255, 0, 60, 0.4);
 }
 
-/* ===== SCROLLBAR STYLE (optionnel stylé) ===== */
+/* ===== SCROLLBAR STYLE ===== */
 .sous::-webkit-scrollbar {
   width: 6px;
 }
@@ -164,11 +171,15 @@ nav > ul > li > a:hover {
   background: #ff003c;
 }
 
+.sous::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
   html,
   body {
-    overflow: auto; /* mobile = scroll normal */
+    overflow: auto;
   }
 
   nav > ul {
@@ -187,8 +198,6 @@ nav > ul > li > a:hover {
   .sous {
     position: static;
     max-height: none;
+    min-width: 100%;
   }
-  .sous li {
-  list-style: none;
-}
 }
