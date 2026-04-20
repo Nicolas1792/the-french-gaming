@@ -42,7 +42,9 @@ body::before {
 
 /* ===== CONTENU AU-DESSUS ===== */
 .conteneur,
-nav {
+nav,
+.page-materiel,
+.hero-materiel {
   position: relative;
   z-index: 2;
 }
@@ -175,6 +177,105 @@ nav > ul > li > a:hover {
   background: rgba(255, 255, 255, 0.05);
 }
 
+/* ===== PAGE CONFIG ===== */
+.page-materiel {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+  position: relative;
+  z-index: 2;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.hero-materiel {
+  max-width: 900px;
+  margin: 10px auto 40px;
+  padding: 30px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.65);
+  border: 2px solid #ff003c;
+  border-radius: 18px;
+  box-shadow: 0 0 15px #ff003c, 0 0 30px rgba(255, 0, 60, 0.3);
+  backdrop-filter: blur(6px);
+}
+
+.hero-materiel h1 {
+  margin: 0 0 12px;
+  font-size: 2.3rem;
+  text-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c;
+}
+
+.hero-materiel p {
+  margin: 0 0 20px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.btn-retour {
+  display: inline-block;
+  padding: 14px 22px;
+  border: 2px solid #ff003c;
+  border-radius: 14px;
+  color: white;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 12px rgba(255, 0, 60, 0.25);
+  transition: 0.25s ease;
+}
+
+.btn-retour:hover {
+  background: #ff003c;
+  color: black;
+  box-shadow: 0 0 16px #ff003c;
+}
+
+.grille-materiel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.carte-materiel {
+  background: rgba(0, 0, 0, 0.72);
+  border: 2px solid rgba(255, 0, 60, 0.75);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 0 16px rgba(255, 0, 60, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carte-materiel:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 0 22px #ff003c, 0 0 34px rgba(255, 0, 60, 0.35);
+}
+
+.carte-materiel img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  display: block;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 14px;
+}
+
+.contenu-materiel {
+  padding: 20px;
+  text-align: center;
+}
+
+.contenu-materiel h2 {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+  text-shadow: 0 0 8px #ff003c;
+}
+
+.contenu-materiel p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
   html,
@@ -199,5 +300,26 @@ nav > ul > li > a:hover {
     position: static;
     max-height: none;
     min-width: 100%;
+  }
+
+  .page-materiel {
+    height: auto;
+    padding: 20px 14px 40px;
+  }
+
+  .hero-materiel {
+    padding: 22px;
+  }
+
+  .hero-materiel h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-materiel p {
+    font-size: 1rem;
+  }
+
+  .carte-materiel img {
+    height: 220px;
   }
 }
