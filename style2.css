@@ -319,7 +319,30 @@ nav > ul > li > a:hover {
     font-size: 1rem;
   }
 
+  @media (max-width: 900px) {
   .carte-materiel img {
-    height: 220px;
+    height: 300px;
   }
+}
+  /* Cache le curseur normal */
+body {
+  cursor: none;
+}
+
+/* Curseur custom */
+.cursor {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  background: #ff003c;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  box-shadow: 
+    0 0 10px #ff003c,
+    0 0 20px #ff003c,
+    0 0 40px rgba(255, 0, 60, 0.6);
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s linear;
+}
 }

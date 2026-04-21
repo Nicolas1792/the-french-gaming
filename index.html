@@ -48,6 +48,7 @@
       <a href="#">Mon univers Twitch</a>
       <ul class="sous">
         <li><a href="https://www.twitch.tv/the_french31"target="_blank" rel="noopener noreferrer">N'hésitez pas à venir sur les live</a></li>
+		<li><a href="https://www.twitch.tv/savanoou"target="_blank" rel="noopener noreferrer">Ma partenaire de stream mérite votre attention</a></li>
       </ul>
     </li>
 
@@ -58,9 +59,32 @@
         <li><a href="Config.html">Ma Config PC</a></li>
       </ul>
     </li>
+		<!-- ✅ ICI NEO EST AU BON ENDROIT -->
+    <li>
+      <a href="Néo.html"target="_blank" rel="noopener noreferrer">Néo 🐾</a>
+    </li>
 
   </ul>
 </nav>
+		<div class="cursor"></div>
 
+<script>
+const cursor = document.querySelector('.cursor');
+
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.transform = 'translate(-50%, -50%) scale(2)';
+  });
+
+  el.addEventListener('mouseleave', () => {
+    cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+  });
+});
+</script>
 </body>
 </html>
