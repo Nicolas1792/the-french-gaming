@@ -19,20 +19,33 @@
     <main class="gta-page">
 
       <section class="hero">
+        <a href="index.html" class="home-button">🏠 CTRL Z</a>
 
-    <a href="index.html" class="home-button">🏠 CTRL Z</a>
-
-    <h1>GRAND THEFT AUTO VI</h1>
-    <p>Lucia & Jason — Direction Vice City</p>
-    <p>Sortie prévue le 19 novembre 2026</p>
-
-</section>
+        <h1>Grand Theft Auto VI</h1>
+        <p>Lucia & Jason — Direction Vice City</p>
+        <p>Sortie prévue le 19 novembre 2026</p>
+      </section>
 
       <section class="countdown">
-        <div class="time-box"><span id="days">0</span>Jours</div>
-        <div class="time-box"><span id="hours">0</span>Heures</div>
-        <div class="time-box"><span id="minutes">0</span>Minutes</div>
-        <div class="time-box"><span id="seconds">0</span>Secondes</div>
+        <div class="time-box">
+          <span id="days">0</span>
+          Jours
+        </div>
+
+        <div class="time-box">
+          <span id="hours">0</span>
+          Heures
+        </div>
+
+        <div class="time-box">
+          <span id="minutes">0</span>
+          Minutes
+        </div>
+
+        <div class="time-box">
+          <span id="seconds">0</span>
+          Secondes
+        </div>
       </section>
 
       <section class="section">
@@ -88,10 +101,15 @@
         return;
       }
 
-      document.getElementById("days").textContent = Math.floor(distance / (1000 * 60 * 60 * 24));
-      document.getElementById("hours").textContent = Math.floor((distance / (1000 * 60 * 60)) % 24);
-      document.getElementById("minutes").textContent = Math.floor((distance / (1000 * 60)) % 60);
-      document.getElementById("seconds").textContent = Math.floor((distance / 1000) % 60);
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
     }
 
     updateCountdown();
