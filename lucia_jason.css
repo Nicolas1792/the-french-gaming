@@ -1,8 +1,3 @@
-/* ===========================================================
-   GTA VI - Lucia & Jason
-   CSS dédié
-=========================================================== */
-
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +11,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Fond lumineux */
 body::before {
   content: "";
   position: fixed;
@@ -28,10 +22,6 @@ body::before {
     linear-gradient(#101018, #101018);
 }
 
-/* ===========================================================
-   Layout
-=========================================================== */
-
 .layout {
   display: grid;
   grid-template-columns: 340px minmax(0, 1000px) 340px;
@@ -42,11 +32,7 @@ body::before {
   align-items: start;
 }
 
-/* ===========================================================
-   Vidéos latérales
-=========================================================== */
-
-.side-video {
+.side-image {
   position: sticky;
   top: 20px;
   height: 92vh;
@@ -55,30 +41,22 @@ body::before {
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.45);
 }
 
-.side-video video {
+.side-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: 0.35s;
 }
 
-.side-video:hover video {
+.side-image:hover img {
   transform: scale(1.04);
 }
-
-/* ===========================================================
-   Contenu
-=========================================================== */
 
 .gta-page {
   width: 100%;
   max-width: 1000px;
   margin: auto;
 }
-
-/* ===========================================================
-   Hero
-=========================================================== */
 
 .hero {
   text-align: center;
@@ -99,10 +77,6 @@ body::before {
   margin-top: 8px;
 }
 
-/* ===========================================================
-   Countdown
-=========================================================== */
-
 .countdown {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -116,12 +90,6 @@ body::before {
   text-align: center;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: 0.25s;
-}
-
-.time-box:hover {
-  transform: translateY(-4px);
-  border-color: #ffc371;
 }
 
 .time-box span {
@@ -130,10 +98,6 @@ body::before {
   color: #ffc371;
   font-weight: bold;
 }
-
-/* ===========================================================
-   Sections
-=========================================================== */
 
 .section {
   background: rgba(24, 24, 32, 0.92);
@@ -153,10 +117,6 @@ body::before {
   margin: 8px 0;
   line-height: 1.6;
 }
-
-/* ===========================================================
-   Boutons
-=========================================================== */
 
 .links {
   display: flex;
@@ -180,10 +140,6 @@ body::before {
   background: #ff7a86;
 }
 
-/* ===========================================================
-   Précommande
-=========================================================== */
-
 .preorder {
   border-left: 6px solid #ffc371;
   background: linear-gradient(
@@ -193,19 +149,11 @@ body::before {
   );
 }
 
-/* ===========================================================
-   Footer
-=========================================================== */
-
 .footer-note {
   text-align: center;
   opacity: 0.65;
   margin: 30px 0;
 }
-
-/* ===========================================================
-   Responsive
-=========================================================== */
 
 @media (max-width: 1500px) {
   .layout {
@@ -227,7 +175,7 @@ body::before {
     padding: 25px 18px;
   }
 
-  .side-video {
+  .side-image {
     display: none;
   }
 
