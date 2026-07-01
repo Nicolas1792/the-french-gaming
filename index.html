@@ -5,73 +5,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="google-site-verification" content="pei29pl382PDNKH-fsxZfsZFZ2kxrqlxY38roydpIxI">
 
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKK27S2064"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-QKK27S2064');
   </script>
 
   <title>The French Gaming</title>
-
-  <!-- CSS principal -->
   <link rel="stylesheet" href="style2.css">
-
 </head>
+
 <body class="accueil-page">
-<nav class="menu-principal">
-  <ul>
 
-    <li class="deroulant">
-      <a href="#">Ma bibliothèque</a>
-      <ul class="sous">
-        <li><a href="gta.html" target="_blank" rel="noopener noreferrer">Grand Theft Auto V Enhanced</a></li>
-        <li><a href="l4d2.html" target="_blank" rel="noopener noreferrer">Left 4 Dead 2</a></li>
-        <li><a href="GRW.html" target="_blank" rel="noopener noreferrer">Ghost Recon Wildlands</a></li>
-        <li><a href="Batman_Arkham.html" target="_blank" rel="noopener noreferrer">Batman Arkham's Trilogy</a></li>
-        <li><a href="ets2.html" target="_blank" rel="noopener noreferrer">Euro Truck Simulator 2</a></li>
-      </ul>
-    </li>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="Asus_Rog.mp4" type="video/mp4">
+  </video>
 
-    <li class="deroulant">
-      <a href="#">Pour jouer avec moi</a>
-      <ul class="sous">
-        <li>Ajoute-moi sur Discord : <strong>nicolasdaemon</strong></li>
-      </ul>
-    </li>
+  <div class="conteneur">
+    <h2>Bienvenue dans mon univers Gaming 🎮</h2>
+    <p>
+      Passionné de gaming, je partage ici mes jeux préférés,
+      mes réseaux et des moyens de jouer ensemble.
+    </p>
+  </div>
 
-    <li class="deroulant">
-      <a href="#">Mon univers Twitch</a>
-      <ul class="sous">
-        <li><a href="https://www.twitch.tv/the_french31" target="_blank" rel="noopener noreferrer">N'hésitez pas à venir sur les live</a></li>
-        <li><a href="https://www.twitch.tv/savanoou" target="_blank" rel="noopener noreferrer">Ma partenaire de stream mérite votre attention</a></li>
-      </ul>
-    </li>
+  <nav class="menu-principal">
+    <ul>
 
-    <li class="deroulant">
-      <a href="#">Ma chaîne YouTube</a>
-      <ul class="sous">
-        <li><a href="https://www.youtube.com/@thefrench7642" target="_blank" rel="noopener noreferrer">Venez voir mes vidéos</a></li>
-        <li><a href="Config.html">Ma Config PC</a></li>
-      </ul>
-    </li>
+      <li class="deroulant">
+        <a href="#">Ma bibliothèque</a>
+        <ul class="sous">
+          <li><a href="gta.html" target="_blank" rel="noopener noreferrer">Grand Theft Auto V Enhanced</a></li>
+          <li><a href="l4d2.html" target="_blank" rel="noopener noreferrer">Left 4 Dead 2</a></li>
+          <li><a href="GRW.html" target="_blank" rel="noopener noreferrer">Ghost Recon Wildlands</a></li>
+          <li><a href="Batman_Arkham.html" target="_blank" rel="noopener noreferrer">Batman Arkham's Trilogy</a></li>
+          <li><a href="ets2.html" target="_blank" rel="noopener noreferrer">Euro Truck Simulator 2</a></li>
+        </ul>
+      </li>
 
-    <li>
-      <a href="Néo.html" target="_blank" rel="noopener noreferrer">
-        Mon compagnon sur 🐾
-      </a>
-    </li>
+      <li class="deroulant">
+        <a href="#">Pour jouer avec moi</a>
+        <ul class="sous">
+          <li>Ajoute-moi sur Discord : <strong>nicolasdaemon</strong></li>
+        </ul>
+      </li>
 
-    <li>
-      <a href="lucia_jason.html" target="_blank" rel="noopener noreferrer">
-        Le produit culturel le plus $$ de l'histoire
-      </a>
-    </li>
+      <li class="deroulant">
+        <a href="#">Mon univers Twitch</a>
+        <ul class="sous">
+          <li><a href="https://www.twitch.tv/the_french31" target="_blank" rel="noopener noreferrer">N'hésitez pas à venir sur les live</a></li>
+          <li><a href="https://www.twitch.tv/savanoou" target="_blank" rel="noopener noreferrer">Ma partenaire de stream mérite votre attention</a></li>
+        </ul>
+      </li>
 
-  </ul>
-</nav>
-  </body>
+      <li class="deroulant">
+        <a href="#">Ma chaîne YouTube</a>
+        <ul class="sous">
+          <li><a href="https://www.youtube.com/@thefrench7642" target="_blank" rel="noopener noreferrer">Venez voir mes vidéos</a></li>
+          <li><a href="Config.html" target="_blank" rel="noopener noreferrer">Ma Config PC</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="Néo.html" target="_blank" rel="noopener noreferrer">
+          Mon compagnon sur 🐾
+        </a>
+      </li>
+
+      <li>
+        <a href="lucia_jason.html" target="_blank" rel="noopener noreferrer">
+          Le produit culturel le plus $$ de l'histoire
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+
+  <div class="cursor"></div>
+
+  <script>
+    const cursor = document.querySelector('.cursor');
+
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(2)';
+      });
+
+      el.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+      });
+    });
+  </script>
+
+</body>
 </html>
