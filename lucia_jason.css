@@ -211,33 +211,34 @@ body::before {
    Bouton Accueil
 =========================================================== */
 
-.home-button {
-    position: fixed;
-    top: 25px;
-    left: 25px;
-    z-index: 1000;
+.hero {
+    position: relative;
+}
 
-    background: linear-gradient(135deg, #ff5f6d, #ffc371);
+.home-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    background: rgba(0, 0, 0, 0.30);
+    backdrop-filter: blur(8px);
+
     color: white;
     text-decoration: none;
 
-    padding: 14px 24px;
-    border-radius: 14px;
+    padding: 12px 18px;
+    border-radius: 12px;
 
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.95rem;
 
-    box-shadow: 0 8px 25px rgba(0,0,0,.35);
+    border: 1px solid rgba(255,255,255,.18);
 
-    transition: .25s ease;
+    transition: .25s;
 }
 
 .home-button:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 12px 35px rgba(255,95,109,.45);
-}
-
-.home-button:active {
-    transform: scale(.97);
+    background: rgba(0,0,0,.55);
+    transform: translateY(-2px);
 }
 }
