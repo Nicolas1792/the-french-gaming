@@ -3,217 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grand Theft Auto VI</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f0f14;
-      color: white;
-      overflow-x: hidden;
-    }
+  <title>Grand Theft Auto VI - Lucia & Jason</title>
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(circle at top left, rgba(255, 95, 109, 0.25), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(106, 90, 205, 0.25), transparent 35%);
-      pointer-events: none;
-      z-index: -2;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 180px minmax(0, 1100px) 180px;
-      gap: 25px;
-      max-width: 1500px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    .gta-page {
-      width: 100%;
-    }
-
-    .side-gallery {
-      position: sticky;
-      top: 20px;
-      height: 90vh;
-      overflow: hidden;
-      border-radius: 18px;
-      opacity: 0.85;
-    }
-
-    .gallery-track {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      animation: scrollGallery 35s linear infinite;
-    }
-
-    .side-gallery:hover .gallery-track {
-      animation-play-state: paused;
-    }
-
-    .side-gallery img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      border-radius: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.45);
-      transition: transform 0.25s;
-    }
-
-    .side-gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    .right .gallery-track {
-      animation-direction: reverse;
-    }
-
-    @keyframes scrollGallery {
-      from {
-        transform: translateY(0);
-      }
-      to {
-        transform: translateY(-50%);
-      }
-    }
-
-    .hero {
-      text-align: center;
-      padding: 60px 20px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #ff5f6d, #ffc371, #6a5acd);
-      box-shadow: 0 0 30px rgba(255, 95, 109, 0.35);
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin: 0;
-      text-transform: uppercase;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 10px;
-    }
-
-    .countdown {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-      margin: 40px 0;
-    }
-
-    .time-box {
-      background: #1b1b25;
-      padding: 25px;
-      border-radius: 15px;
-      text-align: center;
-      border: 1px solid #333;
-    }
-
-    .time-box span {
-      display: block;
-      font-size: 2rem;
-      font-weight: bold;
-      color: #ffc371;
-    }
-
-    .section {
-      background: rgba(24, 24, 32, 0.92);
-      backdrop-filter: blur(6px);
-      padding: 25px;
-      border-radius: 15px;
-      margin-bottom: 25px;
-      border: 1px solid #2d2d38;
-    }
-
-    .section h2 {
-      margin-top: 0;
-      color: #ffc371;
-    }
-
-    .links a {
-      display: inline-block;
-      margin: 8px 10px 8px 0;
-      padding: 12px 18px;
-      background: #ff5f6d;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-
-    .links a:hover {
-      transform: scale(1.05);
-      background: #ff7a86;
-    }
-
-    .preorder {
-      background: linear-gradient(135deg, rgba(27, 27, 37, 0.95), rgba(41, 41, 58, 0.95));
-      border-left: 5px solid #ffc371;
-    }
-
-    .footer-note {
-      text-align: center;
-      opacity: 0.7;
-      font-size: 0.9rem;
-      margin-top: 30px;
-    }
-
-    @media (max-width: 1100px) {
-      .layout {
-        display: block;
-        max-width: 1100px;
-      }
-
-      .side-gallery {
-        display: none;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-
-      .countdown {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="lucia_jason.css" />
 </head>
 
 <body>
   <div class="layout">
 
-    <aside class="side-gallery left">
-      <div class="gallery-track">
-        <img src="images/gta6/gta6-1.jpg" alt="Screenshot GTA VI">
-        <img src="images/gta6/gta6-2.jpg" alt="Screenshot GTA VI">
-        <img src="images/gta6/gta6-3.jpg" alt="Screenshot GTA VI">
-        <img src="images/gta6/gta6-4.jpg" alt="Screenshot GTA VI">
-
-        <img src="images/gta6/gta6-1.jpg" alt="Screenshot GTA VI">
-        <img src="images/gta6/gta6-2.jpg" alt="Screenshot GTA VI">
-        <img src="images/gta6/gta6-3.jpg" alt="Screenshot GTA VI">
-        <img src="images/gta6/gta6-4.jpg" alt="Screenshot GTA VI">
-      </div>
+    <aside class="side-video left-video">
+      <video autoplay muted loop playsinline>
+        <source src="videos/gta6/lucia.mp4" type="video/mp4">
+      </video>
     </aside>
 
     <main class="gta-page">
 
       <section class="hero">
         <h1>Grand Theft Auto VI</h1>
-        <p>Direction Vice City — Sortie prévue le 19 novembre 2026</p>
+        <p>Lucia & Jason — Direction Vice City</p>
+        <p>Sortie prévue le 19 novembre 2026</p>
       </section>
 
       <section class="countdown">
@@ -221,14 +31,17 @@
           <span id="days">0</span>
           Jours
         </div>
+
         <div class="time-box">
           <span id="hours">0</span>
           Heures
         </div>
+
         <div class="time-box">
           <span id="minutes">0</span>
           Minutes
         </div>
+
         <div class="time-box">
           <span id="seconds">0</span>
           Secondes
@@ -253,6 +66,7 @@
         <p><strong>Date de sortie :</strong> 19 novembre 2026</p>
         <p><strong>Plateformes :</strong> PlayStation 5 / Xbox Series X|S</p>
         <p><strong>Lieu :</strong> Leonida / Vice City</p>
+        <p><strong>Personnages :</strong> Lucia Caminos & Jason Duval</p>
         <p><strong>Ambiance :</strong> soleil, crimes, chaos et attente interminable.</p>
       </section>
 
@@ -269,18 +83,10 @@
 
     </main>
 
-    <aside class="side-gallery right">
-      <div class="gallery-track">
-        <img src="images/gta6/gta6-5.jpg" alt="Screenshot GTA VI">
-        <img src="images/gta6/gta6-6.jpg" alt="Screenshot GTA VI">
-        <img src="images/gta6/gta6-7.jpg" alt="Screenshot GTA VI">
-        <img src="images/gta6/gta6-8.jpg" alt="Screenshot GTA VI">
-
-        <img src="images/gta6/gta6-5.jpg" alt="Screenshot GTA VI">
-        <img src="images/gta6/gta6-6.jpg" alt="Screenshot GTA VI">
-        <img src="images/gta6/gta6-7.jpg" alt="Screenshot GTA VI">
-        <img src="images/gta6/gta6-8.jpg" alt="Screenshot GTA VI">
-      </div>
+    <aside class="side-video right-video">
+      <video autoplay muted loop playsinline>
+        <source src="videos/gta6/jason.mp4" type="video/mp4">
+      </video>
     </aside>
 
   </div>
